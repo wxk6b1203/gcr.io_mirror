@@ -29,6 +29,8 @@ jobs:
   auto_close_issues:
     runs-on: ubuntu-latest
     steps:
+      - name: debug output
+        run: echo ${{ toJson(github.event) }}
       - name: check issues
         id: check_issues
         uses: actions/github-script@v3.1.0
