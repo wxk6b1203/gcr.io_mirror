@@ -30,7 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: debug output
-        run: echo ${{ toJson(github.event) }}
+        run: |
+          cat << OBJECT
+          ${{ toJson(github) }}
+          OBJECT
       - name: check issues
         id: check_issues
         uses: actions/github-script@v3.1.0
