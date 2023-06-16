@@ -7,18 +7,19 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/client"
-	"github.com/google/go-github/v47/github"
-	"golang.org/x/oauth2"
-	"gopkg.in/alecthomas/kingpin.v2"
-	"gopkg.in/yaml.v3"
 	"io"
 	"io/ioutil"
 	"os"
 	"regexp"
 	"strings"
 	"text/template"
+
+	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/client"
+	"github.com/google/go-github/v47/github"
+	"golang.org/x/oauth2"
+	"gopkg.in/alecthomas/kingpin.v2"
+	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -241,7 +242,7 @@ func mirrorByIssues(issues *github.Issue, config *Config) (err error, originImag
 }
 
 func dockerLogin(config *Config) (*client.Client, context.Context, error) {
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
+	cli, err := client.NewClientWithOpts(client.FromEnv)
 	if err != nil {
 		return nil, nil, err
 	}
