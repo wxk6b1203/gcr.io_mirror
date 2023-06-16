@@ -242,7 +242,7 @@ func mirrorByIssues(issues *github.Issue, config *Config) (err error, originImag
 }
 
 func dockerLogin(config *Config) (*client.Client, context.Context, error) {
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithVersion(""))
+	cli, err := client.NewClientWithOpts(client.WithVersion(""))
 	if err != nil {
 		return nil, nil, err
 	}
